@@ -3,7 +3,14 @@
 # Title: Building a decision tree 
 
 library('rpart')
+setwd('D:\\study\\r\\learn_data_science\\Data\\Charpter1')
 load('GCDData.RData')
+
+str(creditdata)
+head(creditdata)
+table(creditdata$Good.Loan)
+
+
 model <- rpart(Good.Loan ~
    Duration.in.month +
    Installment.rate.in.percentage.of.disposable.income +
