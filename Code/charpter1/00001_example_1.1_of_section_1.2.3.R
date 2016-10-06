@@ -29,3 +29,26 @@ model <- rpart(Good.Loan ~
    control=rpart.control(maxdepth=4),
    method="class")
 
+plot(model)
+
+resultframe<-data.frame(Good.Loan=creditdata$Good.Loan,
+                        pred=predict(model,type='class'))
+
+rtab<-table(resultframe)
+
+rtab
+##recall,how many bad loans are fided.
+recall<-rtab[1,1]/sum(rtab[1,])
+
+##precision,how many of the loans identified as bad loans are really   bad .
+
+precision<-rtab[1,1]/sum(rtab[,1])
+
+##false positive rate,how many of the good loans are mistakenly identified as bad.
+
+FP_rate<-precision<-rtab[2,1]/sum(rtab[2,])
+
+
+
+
+
