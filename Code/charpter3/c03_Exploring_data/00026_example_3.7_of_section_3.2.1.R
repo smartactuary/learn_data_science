@@ -7,6 +7,8 @@ library(scales) 	# Note: 1
 ggplot(custdata) + geom_density(aes(x=income)) +
    scale_x_continuous(labels=dollar) 	# Note: 2
 
+head(custdata)
+dollar(custdata$income)
 # Note 1: 
 #   The scales package brings in the dollar 
 #   scale notation. 

@@ -8,6 +8,11 @@ ggplot(custdata) +
    geom_histogram(aes(x=age),
    binwidth=5, fill="gray") 	# Note: 2
 
+
+ggplot(custdata) +
+  geom_density(aes(x=age)) +
+  scale_x_continuous(labels=c(0,50,150,200))
+
 # Note 1: 
 #   Load the ggplot2 library, if you haven’t 
 #   already done so. 

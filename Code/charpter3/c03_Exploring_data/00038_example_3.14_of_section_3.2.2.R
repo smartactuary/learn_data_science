@@ -1,7 +1,7 @@
 # example 3.14 of section 3.2.2 
 # (example 3.14 of section 3.2.2)  : Exploring data : Spotting problems using graphics and visualization : Visually checking relationships between two variables 
 # Title: Producing a hexbin plot 
-
+install.packages('hexbin')
 library(hexbin) 	# Note: 1 
 
 ggplot(custdata2, aes(x=age, y=income)) +

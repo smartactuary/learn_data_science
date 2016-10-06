@@ -6,6 +6,13 @@ ggplot(custdata) + geom_density(aes(x=income)) +
    scale_x_log10(breaks=c(100,1000,10000,100000), labels=dollar) +  	# Note: 1 
    annotation_logticks(sides="bt")  	# Note: 2
 
+dollar(c(100,1000,10000,100000))
+
+ggplot(custdata) + geom_density(aes(x=log10(income))) +
+    scale_x_continuous(breaks=c(2,3,4,5,6),labels=dollar(10^c(2,3,4,5,6)))+  	# Note: 1 
+  annotation_logticks(sides="bt")
+
+ggplot(custdata) + geom_density(aes(x=income)) +scale_x_log10()
 # Note 1: 
 #   Set the x-axis to be in log10 scale, with 
 #   manually set tick points and labels as dollars. 

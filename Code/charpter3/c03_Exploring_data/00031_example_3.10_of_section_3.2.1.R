@@ -5,6 +5,7 @@
 statesums <- table(custdata$state.of.res) 	# Note: 1 
 statef <- as.data.frame(statesums) 	# Note: 2 
 colnames(statef)<-c("state.of.res", "count") 	# Note: 3 
+str(statef)
 summary(statef)  	# Note: 4 
 ## state.of.res     count
 ## Alabama   : 1    Min.   :  1.00
