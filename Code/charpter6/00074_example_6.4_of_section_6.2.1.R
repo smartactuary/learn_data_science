@@ -13,6 +13,29 @@ mkPredC <- function(outCol,varCol,appCol) { 	# Note: 1
    pred[is.na(pred)] <- pPos 	# Note: 7 
    pred 	# Note: 8 
 }
+##study the function
+pPos <- sum(dTrain[,outcome]==pos)/length(dTrain[,outcome]) 	# Note: 2 
+
+naTab <- table(as.factor(dTrain[,outcome][is.na(dTrain[,'Var192'])]))
+
+pPosWna <- (naTab/sum(naTab))[pos] 	# Note: 3 
+
+vTab <- table(as.factor(dTrain[,outcome]),dTrain[,'Var192'])
+
+pPosWv <- (vTab[as.character(pos),]+1.0e-3*pPos)/(colSums(vTab)+1.0e-3) 	# Note: 4 
+
+pred <- pPosWv[dTest[,'Var192']] 	# Note: 5 
+
+pred[is.na(dTest[,'Var192'])] <- pPosWna 	# Note: 6 
+
+pred[is.na(pred)] <- pPos 	# Note: 7 
+
+
+
+
+dTest[,pi] <- mkPredC(dTrain[,outcome],dTrain[,'Var192'],dTest[,'predVar192'])
+
+
 
 # Note 1: 
 #   Given a vector of training outcomes (outCol), 
